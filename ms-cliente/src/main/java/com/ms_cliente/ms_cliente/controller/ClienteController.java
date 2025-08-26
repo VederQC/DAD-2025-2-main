@@ -25,12 +25,12 @@ public class ClienteController {
     }
 
     @PostMapping
-    public Cliente guardar(Cliente categoria) {
+    public Cliente guardar(@RequestBody Cliente categoria) {
         return categoriaService.guardar(categoria);
     }
 
     @PutMapping
-    public Cliente actualizar(Cliente categoria) {
+    public Cliente actualizar(@RequestBody Cliente categoria) {
         return categoriaService.actualizar(categoria);
     }
 
