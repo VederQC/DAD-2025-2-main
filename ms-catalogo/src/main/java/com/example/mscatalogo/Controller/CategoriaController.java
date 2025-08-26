@@ -34,7 +34,7 @@ public class CategoriaController {
         return categoriaService.actualizar(categoria);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public String eliminar(@PathVariable Integer id) {
         categoriaService.borrarPorId(id);
         return "Categoria eliminada";
