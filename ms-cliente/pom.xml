@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ms-cliente</groupId>
-	<artifactId>ms-cliente</artifactId>
+	<artifactId>ms_cliente</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ms-cliente</name>
 	<description>Demo project for Spring Boot</description>
