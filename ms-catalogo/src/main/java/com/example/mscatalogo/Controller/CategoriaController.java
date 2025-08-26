@@ -25,12 +25,12 @@ public class CategoriaController {
     }
 
     @PostMapping
-    public Categoria guardar(Categoria categoria) {
+    public Categoria guardar(@RequestBody Categoria categoria) {
         return categoriaService.guardar(categoria);
     }
 
     @PutMapping
-    public Categoria actualizar(Categoria categoria) {
+    public Categoria actualizar(@RequestBody Categoria categoria) {
         return categoriaService.actualizar(categoria);
     }
 
