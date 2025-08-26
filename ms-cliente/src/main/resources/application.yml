@@ -1,6 +1,6 @@
 spring:
   application:
-    name: ms-catalogo
+    name: ms_cliente
   profiles:
     active: development
   config:
