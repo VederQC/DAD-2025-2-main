@@ -21,7 +21,7 @@ public class ComprasServiceImpl implements ComprasService {
 
     @Override
     public Optional<Compras> buscarPorId(Integer id) {
-        return categoriaRepository.findById(id.longValue());
+        return categoriaRepository.findById(id);
     }
 
     @Override
@@ -36,6 +36,6 @@ public class ComprasServiceImpl implements ComprasService {
 
     @Override
     public void borrarPorId(Integer id) {
-        categoriaRepository.deleteById(id.longValue());
+        categoriaRepository.deleteById(id);
     }
 }

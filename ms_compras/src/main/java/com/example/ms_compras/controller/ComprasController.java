@@ -27,12 +27,12 @@ public class ComprasController {
     }
 
     @PostMapping
-    public Compras guardar(Compras categoria) {
+    public Compras guardar(@RequestBody Compras categoria) {
         return comprasService.guardar(categoria);
     }
 
     @PutMapping
-    public Compras actualizar(Compras categoria) {
+    public Compras actualizar(@RequestBody Compras categoria) {
         return comprasService.actualizar(categoria);
     }
 
