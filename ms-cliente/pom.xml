@@ -12,7 +12,7 @@
 	</parent>
 
 	<groupId>com.ms-cliente</groupId>
-	<artifactId>ms_cliente</artifactId>
+	<artifactId>ms-cliente</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ms-cliente</name>
 	<description>Microservicio Cliente</description>

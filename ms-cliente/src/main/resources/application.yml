@@ -2,7 +2,7 @@ server:
   port: 8081
 spring:
   application:
-    name: ms_cliente
+    name: ms-cliente
   profiles:
     active: development
   config:
