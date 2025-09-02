@@ -27,13 +27,13 @@ public class ComprasController {
     }
 
     @PostMapping
-    public Compras guardar(@RequestBody Compras categoria) {
-        return comprasService.guardar(categoria);
+    public Compras guardar(@RequestBody Compras compras) {
+        return comprasService.guardar(compras);
     }
 
     @PutMapping
-    public Compras actualizar(@RequestBody Compras categoria) {
-        return comprasService.actualizar(categoria);
+    public Compras actualizar(@RequestBody Compras compras) {
+        return comprasService.actualizar(compras);
     }
 
     @DeleteMapping("/{id}")
