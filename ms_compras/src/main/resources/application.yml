@@ -1,1 +1,9 @@
-spring.application.name=ms_compras
+server:
+  port: 8082
+spring:
+  application:
+    name: ms-compras
+  profiles:
+    active: development
+  config:
+    import: optional:configserver:http://root:123456@localhost:7070
