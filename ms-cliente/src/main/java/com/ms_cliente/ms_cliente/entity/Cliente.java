@@ -1,46 +1,27 @@
 package com.ms_cliente.ms_cliente.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.Id;;
+import lombok.*;
+
 
 
 @Entity
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonPropertyOrder({ "id", "nombre", "apellido" })
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
+    private Integer Id;
     private String nombre;
+    private String apellido;
+    private Integer idcategoria;
 
-    private String descripcion;
 
-    // ===== Getters =====
-    public Integer getId() {
-        return id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    // ===== Setters =====
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
 }

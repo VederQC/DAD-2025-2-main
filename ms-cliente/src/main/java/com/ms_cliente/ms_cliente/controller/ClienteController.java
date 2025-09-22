@@ -1,5 +1,6 @@
 package com.ms_cliente.ms_cliente.controller;
 
+import com.ms_cliente.ms_cliente.dto.ClienteDto;
 import com.ms_cliente.ms_cliente.entity.Cliente;
 import com.ms_cliente.ms_cliente.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,31 +13,32 @@ import java.util.Optional;
 @RequestMapping("/cliente")
 public class ClienteController {
     @Autowired
-    ClienteService categoriaService;
+    ClienteService clienteService;
 
     @GetMapping
     public List<Cliente> listar() {
-        return categoriaService.listar();
+        return clienteService.listar();
     }
 
     @GetMapping("/{id}")
-    public Optional<Cliente> buscarPorId(@PathVariable Integer id) {
-        return categoriaService.buscarPorId(id);
+    public ClienteDto buscarPorId(@PathVariable Integer id) {
+        return clienteService.buscarPorId(id);
     }
 
     @PostMapping
-    public Cliente guardar(@RequestBody Cliente categoria) {
-        return categoriaService.guardar(categoria);
+    public Cliente guardar(@RequestBody Cliente cliente) {
+        return clienteService.guardar(cliente);
     }
 
     @PutMapping
-    public Cliente actualizar(@RequestBody Cliente categoria) {
-        return categoriaService.actualizar(categoria);
+    public Cliente actualizar(@RequestBody Cliente cliente) {
+
+        return clienteService.actualizar(cliente);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public String eliminar(@PathVariable Integer id) {
-        categoriaService.borrarPorId(id);
+        clienteService.borrarPorId(id);
         return "Categoria eliminada";
     }
 }
