@@ -29,10 +29,12 @@ public class CategoriaController {
         return categoriaService.guardar(categoria);
     }
 
-    @PutMapping
-    public Categoria actualizar(@RequestBody Categoria categoria) {
+    @PutMapping("/{id}")
+    public Categoria actualizar(@PathVariable Integer id, @RequestBody Categoria categoria) {
+        categoria.setId(id); // aseguramos que el id venga de la URL
         return categoriaService.actualizar(categoria);
     }
+
 
     @DeleteMapping("/{id}")
     public String eliminar(@PathVariable Integer id) {
