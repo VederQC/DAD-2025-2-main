@@ -1,15 +1,17 @@
-package com.example.ms_auth.dto;
+package com.example.ms_gateway_server.dto;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@Builder
 @NoArgsConstructor
+
+
+@Builder
 @AllArgsConstructor
-public class AuthUserDto {
-    private String username;
-    private String password;
+@Data
+public class TokenDto {
+    private String token;
 }
