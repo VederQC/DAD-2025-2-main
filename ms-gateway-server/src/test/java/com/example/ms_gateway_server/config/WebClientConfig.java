@@ -12,5 +12,6 @@ public class WebClientConfig {
     @LoadBalanced
     public WebClient.Builder builder() {
         return WebClient.builder();
+
     }
 }
