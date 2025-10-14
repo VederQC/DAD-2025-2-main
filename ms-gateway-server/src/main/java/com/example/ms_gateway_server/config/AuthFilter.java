@@ -23,24 +23,27 @@ public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilter.Config> 
     }
     @Override
     public GatewayFilter apply(Config config) {
-        return (((exchange, chain) -> {
-            if(!exchange.getRequest().getHeaders().containsKey(HttpHeaders.AUTHORIZATION))
+        return (exchange, chain) -> {
+            if (!exchange.getRequest().getHeaders().containsKey(HttpHeaders.AUTHORIZATION))
                 return onError(exchange, HttpStatus.BAD_REQUEST);
-            String tokenHeader = exchange.getRequest().getHeaders().get(HttpHeaders.AUTHORIZATION).get(0);
-            String [] chunks = tokenHeader.split(" ");
-            if(chunks.length != 2 || !chunks[0].equals("Bearer"))
+
+            String tokenHeader = exchange.getRequest().getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
+            String[] chunks = tokenHeader.split(" ");
+            if (chunks.length != 2 || !chunks[0].equals("Bearer"))
                 return onError(exchange, HttpStatus.BAD_REQUEST);
+
+            String token = chunks[1];
+
             return webClient.build()
                     .post()
-                    .uri("http://ms-auth-service/auth/validate?token=" + chunks[1])
-                    .retrieve().bodyToMono(TokenDto.class)
-                    .map(t -> {
-                        t.getToken();
-                        return exchange;
-                    }).flatMap(chain::filter);
-        }));
-
+                    .uri("lb://ms-auth/auth/validate?token=" + token)
+                    .retrieve()
+                    .bodyToMono(TokenDto.class)
+                    .flatMap(t -> chain.filter(exchange)) // Si es válido → continúa
+                    .onErrorResume(ex -> onError(exchange, HttpStatus.UNAUTHORIZED)); // Si hay error → 401
+        };
     }
+
 
 
     public Mono<Void> onError(ServerWebExchange exchange, HttpStatus status){
