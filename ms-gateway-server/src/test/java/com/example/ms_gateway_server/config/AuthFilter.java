@@ -40,6 +40,7 @@ public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilter.Config> 
                         return exchange;
                     }).flatMap(chain::filter);
         }));
+
     }
 
 
