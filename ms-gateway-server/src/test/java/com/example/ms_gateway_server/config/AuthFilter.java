@@ -1,7 +1,5 @@
 package com.example.ms_gateway_server.config;
 
-
-import com.example.ms_gateway_server.dto.TokenDto;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.http.HttpHeaders;

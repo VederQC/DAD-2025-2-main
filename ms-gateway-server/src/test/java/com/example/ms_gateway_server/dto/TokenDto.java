@@ -1,6 +1,5 @@
 package com.example.ms_gateway_server.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
